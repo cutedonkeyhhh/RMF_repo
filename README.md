@@ -10,30 +10,13 @@ Two of these are Lean axioms; Lemma 2 is represented definitionally.
 To compare the statements with the PDF, click through [REVIEW.md](REVIEW.md).
 Label-by-label names are in [CORRESPONDENCE.md](CORRESPONDENCE.md).
 
-## Main theorem
+## Formalized results
 
-The following is the main theorem proved in Lean.
+- `RMFLean.MomentDichotomy` formalizes Theorem 1 of the paper.
+- `RMFLean.CentralLimit` formalizes the central limit theorem corollary; `RMFLean.CentralLimitMoments` records the corresponding moment convergence.
 
-Let $d\ge 0$ be an integer. There exists a real number $C_d>0$ such that for every integer $s\ge 2$ there exist real numbers $C_{\ell\ell}>0$ and $C>0$, and an integer $N_0$, for which the following holds. Let $N\ge\max(N_0,3)$ be an integer and let $\delta$ be a real number with $N^{-C}<\delta<1/8$. Let $g(n)=\sum_{j=0}^d\beta_j n^j$ be a polynomial with real coefficients, and write $e(x)=\exp(2\pi i x)$. Define
-
-$$
-\mathcal{M}_s(N)=N^{-s}\sum_{1\le n_i,m_i\le N \atop n_1\cdots n_s=m_1\cdots m_s}\prod_{i=1}^s e(g(n_i))\,\overline{e(g(m_i))},
-$$
-
-where the sum runs over integers $n_1,\ldots,n_s,m_1,\ldots,m_s$, and $\log$ denotes the natural logarithm. Then at least one of the following holds.
-
-1. $\bigl|\mathcal{M}_s(N)-s!\bigr|\le C_{\ell\ell}\,\delta\,(2s\log N)^{3s^2}$.
-2. There exists a nonzero integer $k$ such that $|k|\le\delta^{-C_d}$ and $\|kg\|_{C^\infty\lbrack N\rbrack}\le\delta^{-C_d}$, where
-
-$$
-\|g\|_{C^\infty\lbrack N\rbrack}=\max_{1\le j\le d} N^j\,\|\beta_j\|_{\mathbb{R}/\mathbb{Z}}.
-$$
-
-and $\|x\|_{\mathbb{R}/\mathbb{Z}}$ is the distance from $x$ to the nearest integer. The polynomial $kg$ has coefficients $k\beta_j$.
-
-The constants $C_{\ell\ell}$, $C$, and $N_0$ depend only on $d$ and $s$, and $C_d$ depends only on $d$.
-
-Let $f$ be a Steinhaus random multiplicative function and let $S_N=N^{-1/2}\sum_{n\le N}f(n)\,e(g(n))$. Steinhaus orthogonality gives $\mathbb{E}\bigl[f(n)\overline{f(m)}\bigr]=\mathbf{1}_{n=m}$, and therefore $\mathcal{M}_s(N)=\mathbb{E}|S_N|^{2s}$. The dichotomy above is Theorem 1 of the paper.
+The exact mathematical statements are in [`paper/main.pdf`](paper/main.pdf).
+For the correspondence between the paper and Lean declarations, see [REVIEW.md](REVIEW.md) and [CORRESPONDENCE.md](CORRESPONDENCE.md).
 
 ## Build and check
 
@@ -57,8 +40,8 @@ lake build RMFLean.Proof.Assemble.Corollary
 
 Three inputs are taken as given.
 
-- Lemma 2 (`lem:moment-formula`), the identification of the moment with the exponential sum over the product equation. The formalization defines `U` to be this finite sum, and `moment_formula` is then a theorem. The underlying probability space and Steinhaus orthogonality are not formalized.
-- Lemma 6 (`lem:diophantine-nil`), the exponential dichotomy: `exponential_dichotomy` in `lean/RMFLean/Trusted/Axioms.lean`. The paper proves this lemma; the formalization takes the statement as an axiom.
+- Lemma 2, the identification of the moment with the exponential sum over the product equation. The formalization defines `U` to be this finite sum, and `moment_formula` is then a theorem. The underlying probability space and Steinhaus orthogonality are not formalized.
+- Lemma 6, the exponential dichotomy: `exponential_dichotomy` in `lean/RMFLean/Trusted/Axioms.lean`. The paper proves this lemma; the formalization takes the statement as an axiom.
 - Gut, Chapter 5, Theorem 8.6 (method of moments), used only for the corollary: `billingsley_method_of_moments` in `lean/RMFLean/Trusted/Corollary.lean`.
 
 The latter two inputs are Lean axioms. The rest of `Proof/` compiles from these inputs and Mathlib.
