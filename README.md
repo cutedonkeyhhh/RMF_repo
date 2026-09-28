@@ -5,7 +5,8 @@ Lean 4 formalization of
 
 The repository contains the paper (`paper/`) and a Lake project (`lean/`).
 The main theorem proved in Lean is stated below. The corollary is proved as well.
-Both are obtained from two axioms, listed under Build and check.
+The development takes three inputs as given, as explained under Build and check.
+Two of these are Lean axioms; Lemma 2 is represented definitionally.
 To compare the statements with the PDF, click through [REVIEW.md](REVIEW.md).
 Label-by-label names are in [CORRESPONDENCE.md](CORRESPONDENCE.md).
 
@@ -54,12 +55,13 @@ lake build RMFLean.Proof.Assemble.Main
 lake build RMFLean.Proof.Assemble.Corollary
 ```
 
-Two statements are Lean axioms.
+Three inputs are taken as given.
 
+- Lemma 2 (`lem:moment-formula`), the identification of the moment with the exponential sum over the product equation. The formalization defines `U` to be this finite sum, and `moment_formula` is then a theorem. The underlying probability space and Steinhaus orthogonality are not formalized.
 - Lemma 6 (`lem:diophantine-nil`), the exponential dichotomy: `exponential_dichotomy` in `lean/RMFLean/Trusted/Axioms.lean`. The paper proves this lemma; the formalization takes the statement as an axiom.
 - Gut, Chapter 5, Theorem 8.6 (method of moments), used only for the corollary: `billingsley_method_of_moments` in `lean/RMFLean/Trusted/Corollary.lean`.
 
-The rest of `Proof/` compiles from these two axioms and Mathlib.
+The latter two inputs are Lean axioms. The rest of `Proof/` compiles from these inputs and Mathlib.
 
 Compile the paper from `paper/` (`main.tex`, XeLaTeX).
 
