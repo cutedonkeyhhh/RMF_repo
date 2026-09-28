@@ -1,0 +1,25 @@
+% !TEX program = xelatex
+\input{preamble}
+\input{macros}
+
+\begin{document}
+
+\title{Moments of random multiplicative functions with polynomial coefficients}
+\author{Xinyu Wang}
+\maketitle
+
+\begin{abstract}
+Let \(f\) be a Steinhaus random multiplicative function and let \(g\) be a polynomial of degree \(d\). Write
+\[
+S_N=\frac1{\sqrt N}\sum_{n\le N}f(n)\,e(g(n)).
+\]
+We prove a quantitative dichotomy for the moments of \(S_N\): for each integer \(s\ge 2\), either \(\mathbb{E}|S_N|^{2s}\) is close to the Gaussian moment \(s!\), or the coefficients of \(g\) can be approximated by rationals with a small denominator. In particular, if the coefficients of \(g\) satisfy a Diophantine condition, then \(S_N\) converges in law to a complex normal distribution with mean \(0\) and variance \(1\). Lean~4 code for the proofs is provided, for convenience of verification.
+\end{abstract}
+
+\input{introduction}
+\input{main-theorem}
+
+\bibliographystyle{abbrv}
+\bibliography{b}
+
+\end{document}

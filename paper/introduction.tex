@@ -1,0 +1,170 @@
+% !TEX root = ../main.tex
+\section{Introduction}
+\label{sec:intro}
+
+  A
+Steinhaus random multiplicative function is a probabilistic model 
+for the
+M\"obius function.
+The definition is as follows.
+Let $\{f(p)\}_{p\text{ prime}}$ be a sequence of independent random variables,
+identically uniformly distributed on the complex unit circle.
+We then extend the definition of $f$ to all natural numbers by complete multiplicativity.
+That is, writing $p^k\parallel n$ to mean that $p^k$ is the highest power of $p$ that divides $n$, we have
+\[
+f(n):=\prod_{p^k\parallel n}f(p)^k.
+\]
+As in the definition, the sequence $f(n)$ exhibits both randomness and multiplicativity.
+Hence one may ask how the random multiplicative structure of $f(n)$ interacts with the structure of a deterministic sequence?
+The sums of interest are $\sum_{n\le N}f(n)w(n)$, for a deterministic
+sequence $w$.
+In this paper, we take $w(n)=e(g(n))$, where $e(x)=\exp(2\pi i x)$
+and
+$g$ is a real polynomial of degree~$d$,
+\[
+g(n)=\sum_{j=0}^d\beta_j n^j,
+\]
+where $\beta_j\in\mathbb{R}$, $j=0,1,\ldots,d$ are the coefficients of the polynomial.
+%%% Explain what beta is. and how to project into R/Z
+Write
+\[
+S_N=\frac1{\sqrt N}\sum_{n\le N}f(n)\,e(g(n)).
+\]
+Here $\sqrt N$ is the size of the standard deviation of
+$\sum_{n\le N}f(n)\,e(g(n))$.  
+
+%Note that $S_N$ is a random variable. 
+We are interested in the moments of the random variables $S_N$.
+We give a quantitative dichotomy for the moments of $S_N$ --- the
+diophantine property of the coefficients $\beta_i$ determines the moment behaviour.
+
+We adapt the definition 
+of the smoothness norm as in \cite{BT} to describe the Diophantine property.
+Throughout, $\|\cdot\|_{\mathbb{R}/\mathbb{Z}}$ denotes distance to the nearest integer.
+
+
+\begin{definition}[{$C^\infty[N]$ norm}]
+\label{def:c-infty}
+For $g(n)=\sum_{j=0}^d\beta_j n^j$ as above and $N\geq 1$, we use the
+monomial-coefficient smoothness norm
+\[
+\|g\|_{C^\infty[N]}
+:=\max_{1\leq j\leq d}\, N^j\,\|\beta_j\|_{\mathbb{R}/\mathbb{Z}}.
+\]
+\end{definition}
+As in Green--Tao \cite[Definition~2.7]{BT}, this smoothness norm is designed to capture the notion of a polynomial sequence which is slowly-varying.
+Note that an upper bound on $\|qg\|_{C^\infty[N]}$ for some small nonzero integer $q$ says that the coefficients of $g$ can be approximated by rationals with a small denominator.
+
+
+The following theorem is our main result.
+\begin{theorem}[Moment dichotomy]\label{thm:main}
+Given integers $d \geq 1$ and $s\geq 2$, there exists a constant $c_0=c_0(d,s)>0$ such that the following holds.
+For all integers $N$ large enough depending only on $d$ and~$s$, let $S_N$ be defined as above for a polynomial $g$ of degree~$d$.
+For every $N^{-c_0}<\delta<1/8$, at least one of the following holds:
+\begin{enumerate}
+    \item \[
+    \Big|\mathbb{E}\big|S_N\big|^{2s}-s!\Big|
+    \ll_{d,s} \delta(\log N)^{O(s^2)}.
+    \]
+    \item There exists $q\in\mathbb{Z}\setminus\{0\}$ with $|q|\ll_d\delta^{-O_d(1)}$ such that
+    \[
+    \|qg\|_{C^{\infty}[N]}\ll_d\delta^{-O_d(1)}.
+    \]
+    \end{enumerate}
+\end{theorem}
+Note that $s!$ is exactly the $2s$-th Gaussian moment of a complex normal distribution with mean $0$ and variance $1$.
+In other words, either the $2s$-th moment is close to $s!$, or $qg$ is slowly varying for some small nonzero integer $q$.
+
+Let us note that allowing the second alternative is necessary.
+If we take $g$ to be a constant, then
+$|S_N|=|N^{-1/2}\sum_{n\le N}f(n)|$, and the $2s$-th moment of this sum
+is of size $(\log N)^{\Theta(s^2)}$ rather than $s!$, by Harper,
+Nikeghbali and Radziwi{\l}{\l} \cite{HNR15} and Heap and Lindqvist
+\cite{HeapLindqvist16}. 
+
+When $s=1$ one has $\mathbb{E}|S_N|^2=1$ immediately, by Steinhaus orthogonality, that is,
+since $\mathbb{E} f(p)=0$ and natural numbers have unique prime factorisations, it is immediate that for all natural numbers $n$ and $m$,
+\[
+\mathbb{E}\bigl[f(n)\overline{f(m)}\bigr]=\mathbf{1}_{n=m}.
+\]
+Let us also note that the odd moments of $S_N$ tend to zero as $N\to\infty$, which can be 
+shown by easy arguments. See the arguments in the proof of Corollary \ref{thm:cor-clt}.
+
+
+
+
+
+For related results regarding the moments of partial sums of random multiplicative functions, Pandey, Wang and Xu \cite{PWX24} showed
+that the $2s$-th moments of $H^{-1/2}\sum_{x<n\le x+H}f(n)$ match the Gaussian
+values $s!$ when $H$ is a sufficiently short interval.  Wang and Xu
+\cite{WX24} showed that the $2s$-th moments of
+$N^{-1/2}\sum_{n\le N}f(P(n))$ match the Gaussian values $s!$, for a
+polynomial $P\in\mathbb{Z}[x]$ with at least two distinct complex roots.
+Meanwhile, Benatar, Nishry and Rodgers \cite{BNR} showed that
+\[
+\mathbb{E}\Biggl|\int_0^1\Bigl|N^{-1/2}\sum_{n\le N}f(n)\,e(n\theta)\Bigr|^{2s}\,d\theta-s!\Biggr|^2\to 0,
+\]
+where the expectation is over \(f\).
+This holds for $s\ll(\log N/\log\log N)^{1/3}$.
+Each of the results above yields a central limit theorem.
+
+If the coefficients of $g$ satisfy a Diophantine condition, then the following central limit theorem holds.
+\begin{coro}[Central limit theorem]\label{thm:cor-clt}
+Write $g(n)=\beta_d n^d+\cdots+\beta_1 n+\beta_0$. Assume that for every $\varepsilon>0$ there exists $C=C(g,\varepsilon)>0$ such that for every nonzero integer $q$,
+\[
+\max_{1\leq i\leq d}\,\|q\beta_i\|_{\mathbb{R}/\mathbb{Z}}
+\geq C\exp\bigl(-|q|^{\varepsilon}\bigr).
+\]
+Then $S_N$ converges in law to a complex normal distribution with mean $0$ and variance $1$.
+\end{coro}
+
+
+For example, the hypothesis holds if some coefficient \(\beta_i\) is an algebraic irrational. In fact, it can be shown that the exceptional set has Hausdorff dimension zero.
+
+From Harper \cite{HarperI} it follows that Corollary~\ref{thm:cor-clt} fails for rational phases, so some Diophantine condition is necessary.
+Previously, Soundararajan and Xu \cite{KX} gave a general criterion on a deterministic weight $w$ under which $N^{-1/2}\sum_{n\le N}f(n)w(n)$ converges in law to a centred complex normal of variance $1$. Their proof uses the martingale central limit theorem and a fourth-moment computation. For the linear phase $w(n)=e(n\theta)$, \cite[Theorem~1.6]{KX} imposes a condition of the same shape with a single value $\varepsilon=1/50$.
+Here, however, the Diophantine condition is assumed for every $\varepsilon>0$. This is because we use the moment method to prove the central limit theorem, and $\varepsilon$ must be taken smaller as the moment order increases
+in order to make sure the higher moments of $S_N$ tend to Gaussian moments. But in fact, for the fourth-moment, we only need to assume the Diophantine condition for a fixed $\varepsilon$ depending only on the degree of the polynomial.
+
+The implied constants in Theorem~\ref{thm:main} depend on $s$, and we state the result for each fixed $s$. The same argument should allow $s$ to grow slowly with $N$, once its dependence is tracked uniformly. For instance, one expects this for $s=o\bigl((\log N/\log\log N)^{1/3}\bigr)$.
+
+%%% Please revise English grammar : the use of articles.
+We believe that Theorem \ref{thm:main} can be extended to other sequences, for example
+nilsequences such as $w(n)=e(\{n\alpha\}n\beta)$ where $\alpha,\beta\in \mathbb{R}/\mathbb{Z}$, and $\{n\alpha\}$ is the fractional part of $n\alpha$.
+But the central limit theorem need not hold for an arbitrary Lipschitz function $F$ in place of $e(\cdot)$.
+See Schlitt \cite{Schlitt26} for a necessary and sufficient condition
+on \(F\) under which \(\sum_{n\le N}f(n)F(n\alpha)\) obeys a central limit
+theorem, where \(F\) is \(1\)-periodic of bounded variation and \(\alpha\)
+is irrational. 
+
+
+The main input of Theorem \ref{thm:main} is the quantitative Weyl theorem of Green--Tao \cite{BT} for polynomial orbits on the circle.
+With this main input, the other ingredients
+include the inclusion-exclusion decomposition, some parameterisation lemmas, divisor sum estimates and effective recurrence arguments that appeared
+in \cite{BT} and \cite[\S3]{GTmob}.
+The proof strategy is further explained in Section~\ref{sec:proof-strategy}.
+
+\subsection{Formalisation}
+\label{sec:formalisation}
+For convenience of verification, we provide Lean~4 code for the proofs
+of the results at
+\begin{center}
+\url{https://github.com/cutedonkeyhhh/RMF_repo}.
+\end{center}
+See this repository for the details.
+
+
+\subsection{Notation}
+\label{sec:notation}
+
+We write $f\ll g$, or equivalently $f=O(g)$, if $|f|\leq C|g|$ for an absolute constant $C$.
+Subscripts indicate the dependence of implied constants on parameters.
+
+The $k$-fold divisor function is denoted $\tau_k$.
+If $\mathcal{B}$ is a set and $\mathcal{P}$ is a property, we write $\mathcal{B}\cap\{\mathcal{P}\}$ for the subset of $\mathcal{B}$ consisting of those elements that satisfy $\mathcal{P}$.
+
+\subsection*{Acknowledgements}
+
+The author is very grateful to  Weikun He for discussions, corrections, and suggestions that greatly improved the presentation of this paper. Sincere thanks also go to  Changguang Dong for very helpful comments. 
+The author is supported by the National Key R\&D Program of China (No. 2022YFA1007500).
+Grok~4.5 and Grok~4.6 were used to provide Lean code and to polish the writing.

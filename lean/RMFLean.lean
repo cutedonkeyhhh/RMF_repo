@@ -1,0 +1,26 @@
+-- Root library module for the 13-page paper formalization.
+import RMFLean.Trusted.Defs
+import RMFLean.Trusted.DivisorSums
+import RMFLean.Trusted.Axioms
+import RMFLean.Trusted.MainTheorem
+import RMFLean.Trusted.Corollary
+import RMFLean.Proof.Setup.SolFinite
+import RMFLean.Proof.Setup.TauFactors
+import RMFLean.Proof.Setup.SolutionSet
+import RMFLean.Proof.Setup.SparseComplement
+import RMFLean.Proof.Setup.PhaseNorm
+import RMFLean.Proof.Param.MatrixParam
+import RMFLean.Proof.Param.IntersectionParam
+import RMFLean.Proof.F1.J1
+import RMFLean.Proof.F1.J2
+import RMFLean.Proof.F1.PropF1
+import RMFLean.Proof.Intersection.I1
+import RMFLean.Proof.Intersection.I1PieceIIIComb
+import RMFLean.Proof.Intersection.I1PieceIIIDio
+import RMFLean.Proof.Intersection.I1PieceIIIScaledJ1
+import RMFLean.Proof.Intersection.I1Bound
+import RMFLean.Proof.Intersection.I2Fibre
+import RMFLean.Proof.Intersection.I2
+import RMFLean.Proof.Intersection.PropIntersection
+import RMFLean.Proof.Assemble.Main
+import RMFLean.Proof.Assemble.Corollary

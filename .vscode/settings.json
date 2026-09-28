@@ -1,0 +1,13 @@
+{
+  "lean4.projectRoot": "lean",
+  "lean4.autoBuildDependencies": true,
+  "lean4.restartServerOnConfigChange": true,
+  "files.associations": {
+    "*.lean": "lean4"
+  },
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+  "latex-workshop.latex.search.rootFiles.include": [
+    "paper/main.tex",
+    "main.tex"
+  ]
+}

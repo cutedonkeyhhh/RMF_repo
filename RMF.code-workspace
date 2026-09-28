@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "name": "paper",
+      "path": "paper"
+    },
+    {
+      "name": "lean",
+      "path": "lean"
+    },
+    {
+      "name": "repo",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "lean4.projectRoot": "${workspaceFolder:lean}",
+    "lean4.autoBuildDependencies": true,
+    "lean4.restartServerOnConfigChange": true,
+    "files.associations": {
+      "*.lean": "lean4"
+    }
+  }
+}

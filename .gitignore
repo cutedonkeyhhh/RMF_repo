@@ -1,0 +1,14 @@
+.lake/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+pdflatex*.fls
+RMF_file.code-workspace
+questions/
