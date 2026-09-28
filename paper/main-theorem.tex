@@ -2028,7 +2028,12 @@ This is impossible for large~$N$.  Thus alternative~(2) cannot occur, and Theore
 \]
 as $N\to\infty$.  Thus $\mathcal{M}_s(N)=\mathbb{E}|S_N|^{2s}\to s!$ for every fixed integer $s\geq 2$.  (The case $s=1$ is immediate: $\mathbb{E}|S_N|^2=1$ by Steinhaus orthogonality and $|e(g(n))|=1$.)
 
-For odd moments, fix integers $s_1,s_2\geq 0$ with $s_1\neq s_2$; we may assume $s_2<s_1$.  Expanding and using complete multiplicativity together with the Steinhaus orthogonality relation, we obtain
+For odd moments, fix integers $s_1,s_2\geq 0$ with $s_1\neq s_2$; by conjugation, we may assume $s_2<s_1$.  If $s_2=0$, then the Steinhaus orthogonality gives
+\[
+\mathbb{E}\bigl[S_N^{s_1}\bigr]
+=N^{-s_1/2}e\bigl(s_1g(1)\bigr)\to 0.
+\]
+We may therefore assume that $1\leq s_2<s_1$.  Expanding and using complete multiplicativity together with the Steinhaus orthogonality relation, we obtain
 \begin{align*}
 \mathbb{E}\bigl[S_N^{s_1}\,\overline{S_N}^{s_2}\bigr]
 &=N^{-(s_1+s_2)/2}
