@@ -3,6 +3,8 @@
 Lean 4 formalization of
 *Moments of random multiplicative functions with polynomial phases on the circle*
 
+The paper is on arXiv: [Moments of random multiplicative functions with polynomial coefficients](https://arxiv.org/abs/2609.35187).
+
 The repository contains the paper (`paper/`) and a Lake project (`lean/`).
 The main theorem proved in Lean is stated below. The corollary is proved as well.
 The development takes three inputs as given, as explained under Build and check.
